@@ -9,7 +9,7 @@ from forwarder import FROM_CHATS, TO_CHATS, LOGGER, dispatcher
 def forward(bot: Bot, update: Update):
     if not (update.effective_message.text):
         message = update.effective_message  # type: Optional[Message]
-	    return
+	return
     from_chat_id = update.effective_chat.id
     from_chat_name = update.effective_chat.title or update.effective_chat.first_name
     
