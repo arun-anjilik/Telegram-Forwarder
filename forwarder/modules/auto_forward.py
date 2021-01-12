@@ -7,16 +7,16 @@ from forwarder import FROM_CHATS, TO_CHATS, LOGGER, dispatcher
 
 @run_async
 def forward(bot: Bot, update: Update):
-    message = update.effective_message  # type: Optional[Message]
+    mess = update.effective_message  # type: Optional[Message]
+    message = mess.media
     from_chat_id = update.effective_chat.id
     from_chat_name = update.effective_chat.title or update.effective_chat.first_name
     
     for chat in TO_CHATS:
         to_chat_name = bot.get_chat(chat).title or bot.get_chat(chat).first_name
         try:
-	        if (message and (message.media)):
-                bot.forward_message(chat_id=chat, from_chat_id=from_chat_id, message_id=message.message_id)
-        	    return
+	    bot.forward_message(chat_id=chat, from_chat_id=from_chat_id, message_id=message.message_id)
+	
         except:
             LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
