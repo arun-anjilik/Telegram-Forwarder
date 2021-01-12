@@ -7,8 +7,9 @@ from forwarder import FROM_CHATS, TO_CHATS, LOGGER, dispatcher
 
 @run_async
 def forward(bot: Bot, update: Update):
-    mess = update.effective_message  # type: Optional[Message]
-    message = mess.media
+    if not (update.effective_message.text)):
+        message = update.effective_message  # type: Optional[Message]
+	    return
     from_chat_id = update.effective_chat.id
     from_chat_name = update.effective_chat.title or update.effective_chat.first_name
     
@@ -29,4 +30,4 @@ try:
     dispatcher.add_handler(FORWARD_HANDLER)
 
 except ValueError:  # When FROM_CHATS list is not set because user doesn't know chat id(s)
-    LOGGER.warn("I can't FORWARD_HANDLER because your FROM_CHATS list is empty.")
+    LOGGER.warn("I can't FORWARD_HANDLER because your FROM_CHATS list is empty.")   
