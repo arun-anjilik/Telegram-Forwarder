@@ -29,7 +29,12 @@ if ENV:
         TO_CHATS = set(int(x) for x in os.environ.get("TO_CHATS", "").split())
     except ValueError:
         raise Exception("Your TO_CHATS list does not contain valid integers.")
-
+    
+    try:
+        GIF_CHATS = set(int(x) for x in os.environ.get("GIF_CHATS", "").split())
+    except ValueError:
+        raise Exception("Your GIF_CHATS list does not contain valid integers.")
+    
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     IP_ADDRESS = os.environ.get('IP_ADDRESS', "0.0.0.0")
     URL = os.environ.get('URL', "")  # Does not contain token
@@ -55,6 +60,12 @@ else:
         TO_CHATS = set(int(x) for x in Config.TO_CHATS or [])
     except ValueError:
         raise Exception("Your TO_CHATS list does not contain valid integers.")
+    
+    try:
+        GIF_CHATS = set(int(x) for x in Config.GIF_CHATS or [])
+    except ValueError:
+        raise Exception("Your GIF_CHATS list does not contain valid integers.")
+
 
     WEBHOOK = Config.WEBHOOK
     IP_ADDRESS = Config.IP_ADDRESS
@@ -71,3 +82,4 @@ dispatcher = updater.dispatcher
 
 FROM_CHATS = list(FROM_CHATS)
 TO_CHATS = list(TO_CHATS)
+GIF_CHATS = list(GIF_CHATS)
