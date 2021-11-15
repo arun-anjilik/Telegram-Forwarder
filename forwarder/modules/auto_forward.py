@@ -2,7 +2,7 @@ from telegram import Bot, Update
 from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
 
-from forwarder import FROM_CHATS, TO_CHATS, LOGGER, dispatcher
+from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 
 
 @run_async
