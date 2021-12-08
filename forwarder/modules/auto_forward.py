@@ -22,7 +22,7 @@ def forward(bot: Bot, update: Update):
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
         time.sleep(dtime)
-        bot.delete_messages(chat_id=from_chat_id, message_id=message.message_id)
+        bot.delete_message(chat_id=from_chat_id, message_id=message.message_id)
 
 
 try:
