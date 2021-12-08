@@ -3,8 +3,7 @@ from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
 import time
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-dtime = 30
-
+dtime = int(getenv("DELAY_TIME"))
 @run_async
 def forward(bot: Bot, update: Update):
     if not (update.effective_message.text):
