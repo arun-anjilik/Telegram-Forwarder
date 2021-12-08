@@ -1,10 +1,9 @@
 from telegram import Bot, Update
 from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
-import time
-from os import getenv
+
+
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-dtime = int(getenv("DELAY_TIME"))
 @run_async
 def forward(bot: Bot, update: Update):
     if not (update.effective_message.text):
@@ -21,8 +20,7 @@ def forward(bot: Bot, update: Update):
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
-        time.sleep(dtime)
-        bot.delete_message(chat_id=from_chat_id, message_id=message.message_id)
+        
 
 
 try:
