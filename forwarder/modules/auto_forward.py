@@ -2,6 +2,7 @@ from telegram import Bot, Update
 from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
 import time
+from os import getenv
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 dtime = int(getenv("DELAY_TIME"))
 @run_async
