@@ -16,7 +16,7 @@ def forward(bot: Bot, update: Update):
             to_chat_name = bot.get_chat(chat).title or bot.get_chat(chat).first_name
             try:
 #                bot.forward_message(chat_id=chat, from_chat_id=from_chat_id, message_id=message.message_id)
-                 time.sleep(60)
+                 time.sleep(10)
                  bot.delete_message(chat_id=from_chat_id, message_id=message.message_id)
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
