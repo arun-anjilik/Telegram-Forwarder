@@ -3,7 +3,7 @@ from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
 
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-
+dtime = 30
 
 @run_async
 def forward(bot: Bot, update: Update):
@@ -21,6 +21,8 @@ def forward(bot: Bot, update: Update):
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
+        time.sleep(g_time)
+        bot.delete_messages(chat_id=chat, message_id=message.message_id)
 
 
 try:
