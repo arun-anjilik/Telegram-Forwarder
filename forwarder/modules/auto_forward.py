@@ -1,7 +1,7 @@
-from telegram import Bot, Update, time
+from telegram import Bot, Update
 from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
-
+import time
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 dtime = 30
 
