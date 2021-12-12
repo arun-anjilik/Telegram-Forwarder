@@ -2,7 +2,7 @@ from telegram import Bot, Update
 from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
 import time
-
+from pyrogram.errors import FloodWait
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 flood_sleep_threshold(350)
 @run_async
