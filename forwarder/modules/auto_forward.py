@@ -4,7 +4,7 @@ from telegram.ext.dispatcher import run_async
 import time
 from pyrogram.errors import FloodWait
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-sleep_threshold(350)
+
 @run_async
 def forward(bot: Bot, update: Update):
     if not (update.effective_message.text):
