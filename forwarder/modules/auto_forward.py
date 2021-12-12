@@ -21,7 +21,7 @@ def forward(bot: Bot, update: Update):
                  arr=[]
                  i = 0
                  mid = message.message_id
-                 if not (len(arr) == 50:
+                 if not len(arr) == 50:
                      for i in range(50):
                         arr.insert(i,mid)
                     
