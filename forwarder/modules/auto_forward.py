@@ -17,8 +17,21 @@ def forward(bot: Bot, update: Update):
             to_chat_name = bot.get_chat(chat).title or bot.get_chat(chat).first_name
             try:
 #                bot.forward_message(chat_id=chat, from_chat_id=from_chat_id, message_id=message.message_id)
-                 time.sleep(10)
-                 bot.delete_message(chat_id=from_chat_id, message_id=message.message_id)
+               #  time.sleep(10)
+                 arr=[]
+                 i = 0
+                 mid = message.message_id
+                 if not (len(arr) == 50:
+                     for i in range(50):
+                        arr.insert(i,mid)
+                    
+                 i = 0
+                     
+                 rmid = arr[i]
+                 bot.delete_message(chat_id=from_chat_id, message_id=rmid)
+                 for i in arr:
+                     arr[i] = arr[i+1]
+                 arr.insert(50,mid)
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
