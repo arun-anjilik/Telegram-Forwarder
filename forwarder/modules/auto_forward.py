@@ -17,7 +17,7 @@ def forward(bot: Bot, update: Update):
         # arr=[]
         # arr.append(mid)
         l.put(mid)
-        bot.send_message(chat_id=from_chat_id, mid)
+        bot.send_message(chat_id=from_chat_id, message=mid)
         if (l.full()):
                # i = 0  
                # rmid = arr[0]
