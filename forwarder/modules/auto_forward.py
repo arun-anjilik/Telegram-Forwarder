@@ -26,16 +26,16 @@ def forward(bot: Bot, update: Update):
                       arr.append(mid)
                         
                         
-                 else:   
+                  
                    
-                   i = 0  
-                   rmid = arr[0]
+                 i = 0  
+                 rmid = arr[0]
                    
-                   bot.delete_message(chat_id=from_chat_id, message_id=rmid)
-                   for i in arr:
-                      arr[i] = arr[i+1]
-                   
-                   arr.insert(50,mid)
+                 bot.delete_message(chat_id=from_chat_id, message_id=rmid)
+                 for i in arr:
+                    arr[i] = arr[i+1]
+                    
+                 arr.insert(50,mid)
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
