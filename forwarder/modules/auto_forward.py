@@ -7,7 +7,7 @@ from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 
 @run_async
 def forward(bot: Bot, update: Update):
-    if not (update.effective_message.text):
+    
         message = update.effective_message  # type: Optional[Message]
        
         from_chat_id = update.effective_chat.id
