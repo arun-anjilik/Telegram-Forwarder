@@ -24,11 +24,12 @@ def forward(bot: Bot, update: Update):
                  if not len(arr) == 200:
                      for i in range(200):
                         arr.insert(i,mid)
+                        Print(mid)
                     
                  i = 0
                      
                  rmid = arr[i]
-                 time.sleep(20)
+                 
                  bot.delete_message(chat_id=from_chat_id, message_id=rmid)
                  for i in arr:
                      arr[i] = arr[i+1]
