@@ -18,16 +18,16 @@ def forward(bot: Bot, update: Update):
         # arr.append(mid)
         
         # bot.send_message(chat_id=from_chat_id, text=mid)
-        if not (l.full()):
+        if not(l.full()):
                # i = 0  
                # rmid = arr[0]
-             l.put(mid)
+            l.put(mid)
              # for i in range(50):
                #      arr[i] = arr[i+1]
                # arr.append(mid)
-        else:
-           rmid = l.get()
-           bot.delete_message(chat_id=from_chat_id, message_id=rmid)
+        
+        rmid = l.get()
+        bot.delete_message(chat_id=from_chat_id, message_id=rmid)
                
         
 
