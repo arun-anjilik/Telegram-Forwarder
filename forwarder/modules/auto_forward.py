@@ -4,7 +4,7 @@ from telegram.ext.dispatcher import run_async
 import time
 
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-i = 0
+int i = 0
 @run_async
 def forward(bot: Bot, update: Update):
     
