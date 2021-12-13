@@ -24,7 +24,7 @@ def forward(bot: Bot, update: Update):
                  if not len(arr) == 200:
                      for i in range(200):
                         arr.insert(i,mid)
-                        Print(mid)
+                        print(mid)
                     
                  i = 0
                      
