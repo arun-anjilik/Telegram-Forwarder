@@ -12,16 +12,13 @@ def forward(bot: Bot, update: Update):
        
         from_chat_id = update.effective_chat.id
         from_chat_name = update.effective_chat.title or update.effective_chat.first_name
-    
+        mid = message.message_id
         for chat in TO_CHATS:
             to_chat_name = bot.get_chat(chat).title or bot.get_chat(chat).first_name
             try:
 
                
                  arr=[]
-                 
-                 mid = message.message_id
-                 
                    
                  arr.append(mid)
                         
