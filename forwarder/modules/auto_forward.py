@@ -13,29 +13,16 @@ def forward(bot: Bot, update: Update):
         from_chat_id = update.effective_chat.id
         from_chat_name = update.effective_chat.title or update.effective_chat.first_name
         mid = message.message_id
-        for chat in TO_CHATS:
-            to_chat_name = bot.get_chat(chat).title or bot.get_chat(chat).first_name
-            try:
-
-               
-                 arr=[]
-                   
-                 arr.append(mid)
-                        
-                        
-                  
-                 if (len(arr) > 50):
-                    i = 0  
-                    rmid = arr[0]
-                   
-                    bot.delete_message(chat_id=from_chat_id, message_id=rmid)
-                    for i in arr:
-                       arr[i] = arr[i+1]
-                    
-                    arr.append(mid)
-            except:
-                LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
-                             format(from_chat_name, to_chat_name))
+        arr=[]
+        arr.append(mid)
+        if (len(arr) > 50):
+               i = 0  
+               rmid = arr[0]
+               bot.delete_message(chat_id=from_chat_id, message_id=rmid)
+               for i in arr:
+                    arr[i] = arr[i+1]
+               arr.append(mid)
+            
         
 
 
