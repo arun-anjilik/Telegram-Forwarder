@@ -2,6 +2,7 @@ from telegram import Bot, Update
 from telegram.ext import MessageHandler, Filters
 from telegram.ext.dispatcher import run_async
 import time
+import queue
 
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 
@@ -9,20 +10,22 @@ from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
 def forward(bot: Bot, update: Update):
     
         message = update.effective_message  # type: Optional[Message]
-       
+        l = queue.Queue(maxsize=20)
         from_chat_id = update.effective_chat.id
         from_chat_name = update.effective_chat.title or update.effective_chat.first_name
         mid = message.message_id
-        arr=[]
-        arr.append(mid)
-        if (len(arr) > 50):
-               i = 0  
-               rmid = arr[0]
+        # arr=[]
+        # arr.append(mid)
+        l.put(mid)
+        if (l.full()):
+               # i = 0  
+               # rmid = arr[0]
+               rmid = l.get()
                bot.delete_message(chat_id=from_chat_id, message_id=rmid)
-               for i in range(50):
-                    arr[i] = arr[i+1]
-               arr.append(mid)
-            
+               # for i in range(50):
+               #      arr[i] = arr[i+1]
+               # arr.append(mid)
+               l.put(mid)
         
 
 
