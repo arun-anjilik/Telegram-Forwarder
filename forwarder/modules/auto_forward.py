@@ -19,12 +19,12 @@ def forward(bot: Bot, update: Update):
 
                
                  arr=[]
-                 
+                 i = 0
                  mid = message.message_id
                  if not len(arr) == 200:
-                     
+                     for i in range(200):
                         arr.insert(i,mid)
-                        i = i+1
+                        
                         
                  else:   
                    i = 0
@@ -33,7 +33,7 @@ def forward(bot: Bot, update: Update):
                    arr[i] = arr[i+1]
                    bot.delete_message(chat_id=from_chat_id, message_id=rmid)
                 
-                   i = i+1 
+                   
                    arr.insert(200,mid)
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
