@@ -4,7 +4,7 @@ from telegram.ext.dispatcher import run_async
 import time
 
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-
+i = 0
 @run_async
 def forward(bot: Bot, update: Update):
     
@@ -19,21 +19,22 @@ def forward(bot: Bot, update: Update):
 
                
                  arr=[]
-                 i = 0
+                 
                  mid = message.message_id
                  if not len(arr) == 200:
-                     for i in range(200):
-                        arr.insert(i,mid)
-                        print(mid)
-                    
-                 i = 0
                      
-                 rmid = arr[i+1]
-                 
-                 bot.delete_message(chat_id=from_chat_id, message_id=rmid)
-                 for i in arr:
-                     arr[i] = arr[i+1]
-                 arr.insert(200,mid)
+                        arr.insert(i,mid)
+                        i = i+1
+                        
+                 else:   
+                   i = 0
+                     
+                   rmid = arr[i]
+                   arr[i] = arr[i+1]
+                   bot.delete_message(chat_id=from_chat_id, message_id=rmid)
+                
+                     
+                   arr.insert(200,mid)
             except:
                 LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
                              format(from_chat_name, to_chat_name))
