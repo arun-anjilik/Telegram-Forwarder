@@ -30,9 +30,10 @@ def forward(bot: Bot, update: Update):
                    
                    i = 0  
                    rmid = arr[0]
-                   arr[i] = arr[i+1]
+                   
                    bot.delete_message(chat_id=from_chat_id, message_id=rmid)
-                
+                   for i in arr:
+                      arr[i] = arr[i+1]
                    
                    arr.insert(50,mid)
             except:
