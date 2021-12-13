@@ -25,7 +25,7 @@ def forward(bot: Bot, update: Update):
              # for i in range(50):
                #      arr[i] = arr[i+1]
                # arr.append(mid)
-        
+        time.sleep(20)
         rmid = l.get()
         bot.delete_message(chat_id=from_chat_id, message_id=rmid)
                
