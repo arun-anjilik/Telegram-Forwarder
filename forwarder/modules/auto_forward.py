@@ -27,7 +27,7 @@ def forward(bot: Bot, update: Update):
                # arr.append(mid)
         else:
            rmid = l.get()
-             bot.delete_message(chat_id=from_chat_id, message_id=rmid)
+           bot.delete_message(chat_id=from_chat_id, message_id=rmid)
                
         
 
