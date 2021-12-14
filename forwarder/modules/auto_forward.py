@@ -30,8 +30,8 @@ def forward(bot: Bot, update: Update):
             rmid = l.get()
             bot.delete_message(chat_id=from_chat_id, message_id=rmid)
         except:
-                LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"{}\".".\
-                             format(from_chat_name, to_chat_name))
+                LOGGER.exception("Error while forwarding message from chat \"{}\" to chat \"\".".\
+                             format(from_chat_name))
            
         
 
