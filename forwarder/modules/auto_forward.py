@@ -5,7 +5,7 @@ import time
 import queue
 
 from forwarder import FROM_CHATS, TO_CHATS, GIF_CHATS, LOGGER, dispatcher
-l = queue.Queue(maxsize=25)
+l = queue.Queue(maxsize=20)
 @run_async
 def forward(bot: Bot, update: Update):
   if not (update.effective_message.text):
